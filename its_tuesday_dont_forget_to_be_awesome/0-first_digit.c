@@ -1,6 +1,5 @@
-include "my_functions.h"
 /*print first digit*/
-first_digit(int n){
+int first_digit(int n){
   if (n==0){
     return(n);
   }
