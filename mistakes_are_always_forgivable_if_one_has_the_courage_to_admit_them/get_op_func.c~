@@ -1,0 +1,21 @@
+int (*get_op_func(char c))(int a, int b){
+
+  char s[5] = {'+', '-', '*', '/', '%'};
+  int (*op_func[5])(int, int);
+  
+  op_func[0] = op_add(a, b);
+  op_func[1] = op_sub(a, b);
+  op_func[2] = op_mul(a, b);
+  op_func[3] = op_div(a, b);
+  op_func[4] = op_mod(a, b);
+
+  int i;
+  for(i = 0;i < s[i]; i++){
+    if(s[i] == c){
+      return op_func[i];
+    }
+  
+  }
+  return NULL; 
+
+}

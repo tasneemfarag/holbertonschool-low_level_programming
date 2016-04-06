@@ -1,0 +1,17 @@
+int advanced_search(int *array, int size, int (*check_func)(int)){
+  /*
+  int i;
+  int result = -1;
+  for(i = 0; i < size; i++){
+    if ((*action_func)(array[i]) == array[i]){
+      return 1;
+    
+    }else {
+
+      return -1;
+    }
+    
+  */
+  return 0;
+
+}
