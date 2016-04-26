@@ -1,0 +1,14 @@
+int print_char(char c);
+
+/*function that prints the alphabet in lower case and in reverse order*/
+void print_tebahpla(void)
+{
+  char ch = 'z';
+
+  while(ch >= 'a')
+    {
+      print_char(ch);
+      ch++;
+
+    }
+}
