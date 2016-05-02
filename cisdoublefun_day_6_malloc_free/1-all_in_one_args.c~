@@ -1,0 +1,29 @@
+#include <stdlib.h>
+int print_char(char c);
+/*function that concatenates all command line arguments*/
+char *all_in_one_args(int ac, char **av)
+{
+  char *dup;
+  int  count, a;
+  count = 0;
+   a = 0;
+  arg = av[a];
+  while(arg[a]!='\0')
+    {
+      a++;
+      }
+
+ 
+  dup = malloc(ac * sizeof(char));
+  if (dup == NULL)
+    {
+      return NULL;
+    }
+  while(count < ac)
+    {
+      dup[count] = arg[count];
+      count++;
+    }
+ 
+  return dup;
+}
