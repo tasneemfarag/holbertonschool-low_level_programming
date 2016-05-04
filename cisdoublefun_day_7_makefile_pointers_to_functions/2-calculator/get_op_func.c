@@ -1,0 +1,31 @@
+#define NULL 0
+int op_add(int, int);
+int op_sub(int, int);
+int op_mul(int, int);
+int op_div(int, int);
+int op_mod(int, int);
+
+int (*get_op_func(char c))(int , int)
+{
+  int i;
+  char oper[5] = {'+', '-', '*', '/', '%'};
+  int (*op_func[5])(int, int);
+  op_func[0] = op_add;
+  op_func[1] = op_sub;
+  op_func[2] = op_mul;
+  op_func[3] = op_div;
+  op_func[4] = op_mod;
+  i = 0;
+  
+  while (i < 5)
+    {
+      if (oper[i] == c)
+	{
+	  return op_func[i];
+	}
+      i++;
+    }
+
+  return NULL; 
+  
+}
