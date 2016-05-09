@@ -1,0 +1,15 @@
+#include "list.h"
+
+/*function that returns the number of node in a list*/
+int list_size(List *list)
+{
+  int length;
+  length = 0;
+
+  while(list!=NULL)
+    {
+      length++;
+      list = list->next;
+    }
+  return length;
+}
