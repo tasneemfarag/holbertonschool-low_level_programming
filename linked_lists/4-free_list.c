@@ -6,6 +6,7 @@ void free_node(List *node);
 /*free a list*/
 void free_list(List *list) {
   List *prev;
+  
   while (list != NULL) {
     prev = list;
     list = list->next;

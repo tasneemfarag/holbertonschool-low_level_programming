@@ -12,7 +12,7 @@ int add_node(List **list, char *content)
   node = malloc(sizeof(List));
   if (node==NULL)
     return 1;
-  dest = malloc(sizeof(content));
+  dest = malloc(sizeof(char)*9);
   string_copy(dest,content);
 
   if (dest==NULL)

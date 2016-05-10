@@ -1,0 +1,5 @@
+all:
+	gcc -o 1-copy_content -Wall -Wextra -Werror -pedantic 1-copy_content
+
+clean:
+	rm 1-copy_content
