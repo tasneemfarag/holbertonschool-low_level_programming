@@ -1,0 +1,82 @@
+int print_char(char c);
+int str_ncmp(char *s1, char *s2, int n);
+int str_len(char *s);
+#define NULL 0;
+
+/*print a stfing */
+void print_string(char *s)
+{
+  int i;
+
+  for (i = 0; s[i] !='\0'; i++)
+    {
+      print_char(s[i]);
+    }
+}
+
+int find_char(char *s, char c)
+{
+  int i;
+  for (i = 0; s[i]!='\0'; i++)
+    {
+      if(s[i] == c)
+        {
+          return i;
+        }
+    }
+  return -1;
+}
+
+char *get_env(char *name, char **env)
+{
+  int n, i;
+
+  for (i = 0; env[i] != NULL ; i++)
+    {
+      if (str_ncmp(env[i], name, str_len(name)) == 0 )
+	{
+	  n = find_char(env[i], '=');
+	  return env[i] + n + 1;
+	}
+    }
+  return "";
+}
+
+/*concatenates two strings*/
+char *concat_strings(char *dest, const char *src){
+  int i;
+  int j = 0;
+  int dest_len = 0;
+  int src_len = 0;
+  while(dest[dest_len] != '\0')
+    {
+      /* printf("%c\n",dest[dest_len]);*/
+      dest_len++;
+    }
+  while(src[src_len] != '\0')
+    {
+      src_len++;
+    }
+
+  /*temp = malloc(size_of(char)*(str_len+dest_len));*/
+  for (i = src_len; i > 0; i--)
+    {
+      /* printf("%c\n",dest[dest_len+1]);                                                                                           
+         printf("%c\n",src[j]);*/
+
+      dest[dest_len] = src[j];
+      j++;
+      dest_len++;
+    }
+
+  return dest;
+}
+
+/* function that copies a string*/
+char *string_copy(char *dest, const char *src){
+  int i=0, j;
+  for(j=0; src[j]!='\0'; i++, j++){
+    dest[i] = src[j];
+  }
+  return dest;
+}
