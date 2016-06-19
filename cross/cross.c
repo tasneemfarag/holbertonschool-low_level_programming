@@ -4,7 +4,7 @@ int read_int(char *avTwo_array);
 void odd_cross(int left_space, int mid_space, int right_space, int from_mid);
 void even_cross(int left_space, int mid_space, int right_space, int from_mid, int i, int n);
 int get_from_mid(int i, int n, int from_mid);
-
+/*main for cross */
 int main(int ac, char **av){
   int i, n, left_space, mid_space, right_space, from_mid;
   n = read_int(av[1]);
@@ -34,7 +34,7 @@ int main(int ac, char **av){
           right_space--;
         } } } }
   return 0; }
-
+/*get_from_mid*/
 int get_from_mid(int i, int n, int from_mid){
   if((i+1) < (float)n/2){
     from_mid = -1;
@@ -44,7 +44,7 @@ int get_from_mid(int i, int n, int from_mid){
     from_mid = 0; }
   return from_mid;
 }
-
+/*read_int*/
 int read_int(char *avTwo_array){
   int n, i;
 
@@ -57,6 +57,7 @@ int read_int(char *avTwo_array){
   }
   return n;
 }
+/*odd_cross*/
 void odd_cross(int left_space, int mid_space, int right_space, int from_mid){
   print_spaces(left_space);
   if(from_mid < 0){
@@ -77,7 +78,7 @@ void odd_cross(int left_space, int mid_space, int right_space, int from_mid){
   print_spaces(right_space);
   print_char('\n');
 }
-
+/*even_cross*/
 void even_cross(int left_space, int mid_space, int right_space, int from_mid, int i, int n){
   print_spaces(left_space);
   if(from_mid < 0){
