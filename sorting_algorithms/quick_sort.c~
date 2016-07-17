@@ -1,0 +1,45 @@
+#include <stdio.h>
+int partition(int *array,int size);
+
+/*sort an array on integers in ascending order 
+  using a Quick sort*/
+void quick_sort (int *array,int size)
+{
+  int p;
+
+  if (size>1)
+    {
+      p = partition(array,size);
+      quick_sort(array,p);
+      quick_sort(array+p+1,(size-p)-1);
+    }
+  return;
+}
+
+int partition(int *array,int size)
+{
+  int i,j,pivot,temp;
+  pivot = size-1;
+  for(i=0,j=-1;i<size-1;++i)
+    {   
+      printf("%d\n", i);
+      if (array[i]<array[pivot])
+        {
+	  ++j;
+	  if(i!=j)
+	    {
+	      temp = array[i];
+	      array[i] = array[j];
+	      array[j] = temp;
+	    }
+        }
+    }
+
+  temp = array[pivot];
+  array[pivot] = array[j+1];
+  array[j+1] = temp;
+
+  pivot = j+1;
+
+  return pivot;
+}
