@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+/*function that free a binary tree */
 void btree_free(BTree *tree)
 {
   if (tree == NULL) return;
