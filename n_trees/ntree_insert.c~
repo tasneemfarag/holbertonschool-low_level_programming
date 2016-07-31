@@ -1,0 +1,67 @@
+#include <stdlib.h>
+#include "tree.h"
+#include <stdio.h>
+#include <string.h>
+
+void ntree_print(NTree *);
+int recursive_insert(NTree *tree, List *ll , NTree *cur_node, char **parents, char *data, int i);
+
+int ntree_insert(NTree **tree, char **parents, char *data)
+{
+  NTree *cur_node;
+  NTree *new_node;
+  int i;
+  List *ll;
+  
+  new_node = malloc(sizeof(NTree));
+  if (new_node == NULL){
+    return 1;
+  }
+  new_node->str = strdup(data);
+  new_node->children = NULL;
+  if(*tree == NULL){
+    *tree = new_node;
+  }
+  else{
+    ll = malloc(sizeof(List));
+    if (ll == NULL){
+      return 1;
+    }
+    ll->next = NULL;
+    ll->node = new_node;
+    i = 0;
+    cur_node = *tree;
+    return recursive_insert(*tree, ll , cur_node, parents, data, i+1);
+  }
+  return 0;
+}
+
+int recursive_insert(NTree *tree, List *ll , NTree *cur_node, char **parents, char *data, int i)
+{
+  List *cur_list;
+  int cmp;
+
+  cur_list = cur_node->children;
+  if (cur_list == NULL){
+    cur_node->children = ll;
+    return 0;
+  }
+
+  if(cur_list != NULL && parents[i] == NULL){
+    ll->next = cur_list;
+    cur_node->children = ll;
+    return 0;
+  }
+
+  while (cur_list != NULL){
+    cur_node = cur_list->node;
+        
+    cmp = strcmp(cur_node->str, parents[i]);
+    if (cmp == 0){
+      i = i + 1;
+      return recursive_insert(tree, ll , cur_node, parents, data, i);
+    }
+    cur_list = cur_list->next;    
+  }
+  return 0;
+}
