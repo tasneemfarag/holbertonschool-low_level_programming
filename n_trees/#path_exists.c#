@@ -54,9 +54,9 @@ int rec_path_exists(NTree *tree, char **path, int i){
         ll = ll->next;
 	inc = inc+ rec_path_exists(tree, path, i+1);
       }
-      printf("secondOne:%d\n", inc);
+    printf("secondOne:%d\n", inc);
 	return inc;
     }
   }
-  return 0;
+   return 0;
 } 
